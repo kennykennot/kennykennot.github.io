@@ -51,7 +51,7 @@ body {
 
 .popup-content {
     position: relative;
-    max-width: 30vw;    /* 相对视窗宽度 */
+    max-width: 40vw;    /* 相对视窗宽度 */
     max-height: 80vh;   /* 相对视窗高度 */
     width: auto;        /* 宽度自适应 */
     height: auto;       /* 高度自适应 */
@@ -89,7 +89,7 @@ body {
 
 @media (max-width: 768px) {
     .popup-content {
-        max-width: 90vw;  /* 手机端增大比例 */
+        max-width: 80vw;  /* 手机端增大比例 */
         min-width: 280px; /* 确保最小宽度（避免过小） */
     }
 }
