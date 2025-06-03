@@ -1,38 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Cool Website</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Chlove proj</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            text-align: center;
+        }
+        
+        #popupButton {
+            padding: 12px 24px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        #popupButton:hover {
+            background-color: #45a049;
+        }
+        
+        .image-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 1000;
+        }
+        
+        .image-popup.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .popup-content {
+            position: relative;
+            max-width: 80%;
+            max-height: 80%;
+            animation: zoomIn 0.3s;
+        }
+        
+        .popup-content img {
+            max-width: 100%;
+            max-height: 100%;
+            border: 5px solid white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 30px;
+            height: 30px;
+            background-color: #f44336;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to My High-Tech Website!</h1>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#login">Login</a>
-        </nav>
-    </header>
+    <div class="container">
+        <h1>点击按钮查看图片</h1>
+        <button id="popupButton">显示图片</button>
+    </div>
     
-    <section id="home">
-        <h2>Check Out My Cool Image or Video!</h2>
-        <img src="your-image.jpg" alt="A cool image of me">
-        <video controls>
-            <source src="your-video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </section>
-
-    <section id="login">
-        <h2>Login</h2>
-        <button id="login-btn">Login with Google</button>
-    </section>
-
-    <footer>
-        <p>Created with ❤️ by You</p>
-    </footer>
-
-    <script src="app.js"></script>
+    <div class="image-popup" id="imagePopup">
+        <div class="popup-content">
+            <span class="close-btn" id="closeBtn">×</span>
+            <img src="https://via.placeholder.com/600x400" alt="示例图片">
+        </div>
+    </div>
+    
+    <script>
+        const popupButton = document.getElementById('popupButton');
+        const imagePopup = document.getElementById('imagePopup');
+        const closeBtn = document.getElementById('closeBtn');
+        
+        popupButton.addEventListener('click', function() {
+            imagePopup.classList.add('active');
+        });
+        
+        closeBtn.addEventListener('click', function() {
+            imagePopup.classList.remove('active');
+        });
+        
+        // 点击弹窗外部也可以关闭
+        imagePopup.addEventListener('click', function(e) {
+            if (e.target === imagePopup) {
+                imagePopup.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
