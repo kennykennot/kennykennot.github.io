@@ -94,21 +94,26 @@
         }
         
         @keyframes zoomIn {
-            from {
+
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { transform: scale(1.1); opacity: 0.8; } /* 轻微放大过头 */
+            100% { transform: scale(1); opacity: 1; }
+            
+/*             from {
                 transform: scale(0.5);
                 opacity: 0;
             }
             to {
                 transform: scale(1);
                 opacity: 1;
-            }
+            } */
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>点击按钮查看图片</h1>
-        <button id="popupButton">显示图片</button>
+        <h1>If you cannot sleep</h1>
+        <button id="popupButton">Help</button>
     </div>
     
     <div class="image-popup" id="imagePopup">
