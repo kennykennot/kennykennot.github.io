@@ -54,12 +54,18 @@
 		<title>和克洛伊的一周年纪念日❤️</title>
 		<link rel="stylesheet" type="text/css" href="./css/format.css">
 	</head>
+	
 
+	
 	<body style="margin:0px">
-		<audio autoplay loop>
+		<button onclick="playSong()">Play Song</button>
+	<audio id="mySong" loop>
+	   <source src="music/music.mp3" type="audio/mpeg">
+	</audio>
+<!-- 		<audio autoplay loop>
 			<source src="music/music.mp3" type="audio/mpeg">
 			Your browser does not support the audio.
-		</audio>
+		</audio> -->
 		<canvas></canvas>
 		<div id="imgTxt">
 			<span id="Txt"></span> <br />
@@ -104,7 +110,11 @@
 			 var len = imageArray.length;
 			var t = 0;
 		</script>
-		
+		<script>
+		   function playSong() {
+		      document.getElementById("mySong").play();
+		   }
+		</script>
 		<script type="text/javascript" src="./js/stars.js"></script>
 		<script type="text/javascript" src="./js/typeWriter.js"></script>
 		<script type="text/javascript" src="./js/date.js"></script>
