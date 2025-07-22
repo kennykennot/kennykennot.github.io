@@ -1,7 +1,8 @@
 
 let i = 0;
 let text1 = "(#`O′) ！李绝情！";
-let text2 = "一周年快乐呀宝贝！要一直爱下去，越来越爱的那种哟！"
+let text2 = "一周年快乐呀宝贝！"
+let text3 = "要一直爱下去！越来越爱的那种哟！约定你！"
 let speed = 100;
 
 function typeWriter(text, para){
@@ -31,6 +32,7 @@ var typeInterval;
 		}
 		else if(ok == 1){
 			typeWriter(text2, "txt2");
+			typeWriter(text2, "txt3");
 		}
 	}, 100);
 //};
